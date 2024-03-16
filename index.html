@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher-Student Availability</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>WELCOME TO FACULTY AVAILABILITY PORTAL</h1>
+        <button class="modern-btn" onclick="showLogin('teacher')"> Teacher</button>
+        <button class="modern-btn" onclick="showLogin('student')">I'm a Student</button>
+    </div>
+
+    <!-- Teacher Login Form -->
+    <div id="teacherLogin" class="login-container">
+        <h2>Teacher Login</h2>
+        <form id="teacherForm" onsubmit="return login('teacher')">
+            <label for="teacherUsername">Username:</label>
+            <input type="text" id="teacherUsername" required><br>
+            <br>
+            <label for="teacherPassword">Password:</label>
+            <input type="password" id="teacherPassword" required>,<br>
+            <br>
+            <button type="submit" class="modern-btn">Login</button>
+            <button type="button" onclick="logout()" class="modern-btn">Log Out</button>
+        </form>
+
+        <!-- Availability Form (Visible only after teacher login) -->
+        <div class="availability-form" id="availabilityForm" style="display: none;">
+            <label for="availability">Availability:</label>
+            <input type="text" id="availability" placeholder="e.g., Monday 9:00 AM - 5:00 PM">
+            <button onclick="addAvailability()" class="modern-btn">Add Availability</button>
+        </div>
+    </div>
+
+    <!-- Teacher Availability List -->
+    <div class="availability-list" id="teacherAvailability" style="display: none;">
+        <h2>Teacher Availability:</h2>
+        <ul id="availabilityList"></ul>
+    </div>
+
+    <!-- Student Search -->
+    <div id="studentSearch" class="search-form" style="display: none;">
+        <label for="searchTeacher">Search for a Teacher:</label>
+        <input type="text" id="searchTeacher" oninput="searchTeacher()">
+        <div id="teacherList"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
