@@ -133,5 +133,29 @@ function addAvailability() {
         alert('Please log in as a teacher first.');
     }
 }
+// Function to save teacher availability to Local Storage
+function saveAvailabilityToLocalStorage() {
+    localStorage.setItem('teacherAvailability', JSON.stringify(teachers));
+}
+
+// Function to load teacher availability from Local Storage
+function loadAvailabilityFromLocalStorage() {
+    const availabilityData = localStorage.getItem('teacherAvailability');
+    if (availabilityData) {
+        teachers = JSON.parse(availabilityData);
+    }
+}
+
+// Call this function to load availability when the page loads
+loadAvailabilityFromLocalStorage();
+
+// Call this function to save availability whenever changes are made
+function addAvailability() {
+    // Your existing code to add availability to the teacher object
+    
+    // Save to Local Storage
+    saveAvailabilityToLocalStorage();
+}
+
 
 
