@@ -1,12 +1,12 @@
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
-  background-color: #333;
+  background-color: #555555;
   color: #000; /* Black text color */
-  background-image: url('nitte2.jpg');
+  background-image: url('');
   background-size: cover;
   height: 40%;
-  width: 40%;
+  width: 70%;
   position: absolute;
   top: 30%;
   left: 50%;
