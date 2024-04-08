@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Information Search</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Teacher Information Search</h1>
+        <input type="text" id="searchInput" placeholder="Search by Teacher Name" oninput="searchTeacher()">
+        <div id="teacherList"></div>
+    </div>
+
+    <div id="teacherInfo" class="teacher-info">
+        <h2>Teacher Information:</h2>
+        <p><strong>Name:</strong> <span id="teacherName"></span></p>
+        <p><strong>Phone:</strong> <span id="teacherPhone"></span></p>
+        <p><strong>Email:</strong> <span id="teacherEmail"></span></p>
+        <p><strong>Profession:</strong> <span id="teacherProfession"></span></p>
+    </div>
+
+    <script>
+        const teachers = [
+            { name: "First year coordinator", phone: "+91**********", email: "******@gmail.com", profession: "" },
+            { name: "Srinivas nekkar", phone: "+91**********", email: "******@gmail.com", profession: "A P.department of humanitics" },
+            { name: "Sonia lobo", phone: "+91**********", email: "******@gmail.com", profession: "A P.department of humanitics" },
+            { name: "Sudeeksha s pai", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor" },
+            { name: "Sunil kumar aithal", phone: "+91**********", email: "******@gmail.com", profession: "......" },
+            { name: "Srikanth bhat", phone: "+91**********", email: "******@gmail.com", profession: "......." },
+            { name: "Krishnaprasad rao", phone: "+91**********", email: "******@gmail.com", profession: "......." },
+            { name: "Santhosh s", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor GD-II "},
+            { name: "Rajashree", phone: "+91**********", email: "******@gmail.com", profession: "A P.department of CSE" },
+            { name: "Anitha d bayar", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor" },
+            { name: "Smitha g", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor" },
+            { name: "Sharmila", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor" },
+            { name: "anjana pai", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor" },
+            { name: "Dr.Ramakrishna bhat", phone: "+91**********", email: "******@gmail.com", profession: "Dept.of Humanities coordinator" },
+            { name: "Dr.Shankar BB", phone: "+91**********", email: "******@gmail.com", profession: "Associate Professor" },
+            { name: "Dr.vasanth KR", phone: "+91**********", email: "******@gmail.com", profession: "Dept.of Mathematics" },
+            { name: "Dr.sarvajith M.S", phone: "+91**********", email: "******@gmail.com", profession: "A P Dept of Chemistry" },
+            { name: "Dr.rajalaxmi s", phone: "+91**********", email: "******@gmail.com", profession: "Associate Professor DEPT of CSE" },
+            { name: "Shruthi M", phone: "+91**********", email: "******@gmail.com", profession: "Associate Professor DEPT of CSE" },
+            { name: "Ms.Bhavya d.", phone: "+91**********", email: "******@gmail.com", profession: "Assistant professor" },
+            { name: "Mrs.Joylin Priya Pinto", phone: "+91**********", email: "******@gmail.com", profession: "Associate Professor DEPT of CSE" },
+            { name: "Dr.Jnaneshwar pai", phone: "+91**********", email: "******@gmail.com", profession: "Assistant professor" },
+            { name: "Dr.Nagaraja BS", phone: "+91**********", email: "******@gmail.com", profession: "A P.department of physics" },
+            { name: "Mr.Deepak D", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor GD-III" },
+            { name: "Dr.Bola Sunil kamath", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor GD-III" },
+            { name: "Dr.Shyam Prasad K", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor GD-III" },
+            { name: "Dr.Vishwanatha", phone: "+91**********", email: "******@gmail.com", profession: "Head DEPT of Humanities" },
+            { name: "Shyla Dafhny Mendonsa", phone: "+91**********", email: "******@gmail.com", profession: "Assistant.professor GD-II" },
+            { name: "Akshatha KJ shetty", phone: "+91**********", email: "******@gmail.com", profession: "A P Department of Humanities" },
+            { name: "Mrs.shwetha", phone: "+91**********", email: "******@gmail.com", profession: "Assistant professor" },// Add more teacher objects as needed
+        ];
+
+        function searchTeacher() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const filteredTeachers = teachers.filter(teacher => teacher.name.toLowerCase().includes(searchInput));
+            displayTeachers(filteredTeachers);
+        }
+
+        function displayTeachers(teachers) {
+            const teacherList = document.getElementById('teacherList');
+            teacherList.innerHTML = '';
+
+            teachers.forEach(teacher => {
+                const li = document.createElement('li');
+                li.textContent = teacher.name;
+                li.onclick = function () {
+                    displayTeacherInfo(teacher);
+                };
+                teacherList.appendChild(li);
+            });
+        }
+
+        function displayTeacherInfo(teacher) {
+            document.getElementById('teacherInfo').style.display = 'block';
+            document.getElementById('teacherName').textContent = teacher.name;
+            document.getElementById('teacherPhone').textContent = teacher.phone;
+            document.getElementById('teacherEmail').textContent = teacher.email;
+            document.getElementById('teacherProfession').textContent = teacher.profession;
+        }
+        // JavaScript code goes here
+    </script>
+</body>
+
+</html>
